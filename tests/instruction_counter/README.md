@@ -1,13 +1,13 @@
 # Instruction Counter Test
 
 #### Compile to LLVM IR
-Run the `CMakeList.txt` in `instruction_counter/`  
+Run the root `CMakeList.txt`  
 Then run:
 ```
-clang -emit-llvm -S -o tmp/test.ll tests/instruction_counter/main.cpp
+clang -emit-llvm -S -o tmp/instruction_counter.ll tests/instruction_counter/main.cpp
 ```
 
 #### Run Pass
 ```
-opt -load-pass-plugin ./build/InstructionCounter.so -passes=instruction-counter -disable-output tmp/test.ll
+opt -load-pass-plugin ./build/instruction_counter/InstructionCounter.so -passes=instruction-counter -disable-output tmp/instruction_counter.ll
 ```
